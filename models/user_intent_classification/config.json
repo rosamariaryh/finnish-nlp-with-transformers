@@ -1,0 +1,53 @@
+{
+  "add_cross_attention": false,
+  "architectures": [
+    "BertForSequenceClassification"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": null,
+  "classifier_dropout": null,
+  "dtype": "float32",
+  "eos_token_id": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "calendar_query",
+    "1": "calendar_set",
+    "2": "datetime_query",
+    "3": "email_query",
+    "4": "email_sendemail",
+    "5": "general_quirky",
+    "6": "news_query",
+    "7": "play_music",
+    "8": "qa_factoid",
+    "9": "weather_query"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "label2id": {
+    "calendar_query": 0,
+    "calendar_set": 1,
+    "datetime_query": 2,
+    "email_query": 3,
+    "email_sendemail": 4,
+    "general_quirky": 5,
+    "news_query": 6,
+    "play_music": 7,
+    "qa_factoid": 8,
+    "weather_query": 9
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "problem_type": "single_label_classification",
+  "tie_word_embeddings": true,
+  "transformers_version": "5.16.1",
+  "type_vocab_size": 2,
+  "use_cache": false,
+  "vocab_size": 50105
+}
