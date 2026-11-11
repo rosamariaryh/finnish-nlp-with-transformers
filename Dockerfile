@@ -11,7 +11,6 @@ RUN uv sync --frozen --no-dev --no-install-project
 
 # Copy the application and trained model
 COPY app/ ./app/
-COPY models/ ./models/
 
 EXPOSE 8000
 

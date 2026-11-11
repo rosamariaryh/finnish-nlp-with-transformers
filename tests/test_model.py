@@ -1,5 +1,5 @@
 
-from app.model import model, predict_intent
+from app.model import load_model, predict_intent
 
 
 def test_model_returns_valid_prediction():
@@ -11,6 +11,7 @@ def test_model_returns_valid_prediction():
 
 def test_prediction_intent_is_valid():
     result = predict_intent("Millainen sää tänään on?")
+    _, model = load_model()
 
     valid_labels = model.config.id2label.values()
 

@@ -1,4 +1,5 @@
-from pathlib import Path
+
+from functools import lru_cache
 
 import torch
 from transformers import (
@@ -6,21 +7,23 @@ from transformers import (
     AutoTokenizer,
 )
 
-# Resolve path relative to the project root
-BASE_DIR = Path(__file__).resolve().parent.parent
-MODEL_PATH = BASE_DIR / "models" / "user_intent_classification"
+MODEL_ID = "rosaryhanen/finnish-intent-classifier"
 
-# Load tokenizer and model once when the application starts
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
 
-model = AutoModelForSequenceClassification.from_pretrained(
-    MODEL_PATH
-)
+@lru_cache(maxsize=1)
+def load_model():
+    """Download and load the model once, then reuse it."""
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+    model = AutoModelForSequenceClassification.from_pretrained(MODEL_ID)
 
-model.eval()
+    model.eval()
+
+    return tokenizer, model
 
 
 def predict_intent(text: str):
+    tokenizer, model = load_model()
+
     inputs = tokenizer(
         text,
         return_tensors="pt",
