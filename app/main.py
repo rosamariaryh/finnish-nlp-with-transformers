@@ -55,16 +55,7 @@ def health():
     "Predicts the intent of a Finnish text using "
     "a fine-tuned Transformer model (TurkuNLP)."
     "Possible intents include:"
-    "calendar_query, "
-    "calendar_set, "
-    "datetime_query, "
-    "email_query, "
-    "email_sendemail, "
-    "general_quirky, "
-    "news_query, "
-    "play_music, "
-    "qa_factoid, "
-    "weather_query, "
+    "calendar_query, calendar_set, datetime_query, email_query, email_sendemail, general_quirky, news_query, play_music, qa_factoid, weather_query "
     ))
 def predict(request: PredictionRequest):
     result = predict_intent(request.text)
